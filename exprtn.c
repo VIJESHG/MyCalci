@@ -9,7 +9,6 @@ int precedance(char c);
 void operation(char c);
 	int k;
 	int i = 0,j = 0,m,r,state = 0; 
-	//Integer I;
 	char c,d[2];
 	char str[128];
 	init(&p);
