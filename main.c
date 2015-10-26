@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "integer.h"
+#include "operations.h"
 Integer infix(char *arr);
 int main(){
 	Integer ans;
