@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include <math.h>
 #include <fcntl.h>
-#include "integer.h"
+#include "operations.h"
 Integer CreateIntegerFromString(char *str) {
 	Integer new;
 	new.head = new.tail = NULL;
