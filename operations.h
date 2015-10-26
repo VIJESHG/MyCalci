@@ -13,3 +13,4 @@ Integer MultiplyIntegers(Integer a, Integer b);
 Integer DivideIntegers(Integer a, Integer b);
 int CompareIntegers(Integer a, Integer b);
 void PrintInteger(Integer a);
+/*operatons*/
