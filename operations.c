@@ -460,7 +460,7 @@ Integer MultiplyIntegers(Integer a, Integer b) {
 	return sum;
 }
 int CompareIntegers(Integer a, Integer b) {
-	int n = 0, m = 0, i,j, d = 100, cmp;
+	int n = 0, m = 0, i,j, d = 1000, cmp;
 	node *x, *y;
 	x = a.head;
 	y = b.head;
@@ -506,39 +506,62 @@ Integer DivideIntegers(Integer a, Integer b) {
 	char str1[128];
 	char str2[128];
 	int count = 0, state;
-	int cmp = 0;
-	long f;
+	int c = 0;
+	long f = 1;
 	Integer d = b;
 	Integer m;
-	cmp = CompareIntegers(a,b);
-	if(cmp == 0) {
-		snprintf(str1,128,"%d",cmp);	
-	return CreateIntegerFromString(str1);
-	}	
-	if(cmp > 0) {
-		f = pow(10,cmp); 
+	c = CompareIntegers(a,b);
+	//printf("%d	",c);
+	if(c == 0) {
+		snprintf(str1,128,"%d",c);	
+		return CreateIntegerFromString(str1);
+	}
+	if((c == 1000) || (c == -1000)) {
+		if(c == 1000) {
+			while(c >= 0) {
+				state = 0;
+			b = AddIntegers(b,d);
+			PrintInteger(b);	
+			c = 0;
+			c = CompareIntegers(a,b);
+			count++;
+			}
+		}
+		else {
+			state = 1;
+			while(c < 0) {
+			b = SubstractIntegers(b,d);	
+			c = 0;
+			c = CompareIntegers(a,b);
+			count++;
+			}
+	}
+		
+}	
+	if((c > 0) && (c < 1000)) {
+		f = pow(10,c); 
 		snprintf(str2,128,"%ld",f);
 		m = CreateIntegerFromString(str2);
 		b = MultiplyIntegers(b, m);
 		printf("\n");
 		PrintInteger(b);
-		cmp = 0;
-		cmp = CompareIntegers(a,b);
-		if(cmp > 0) { 
-		while(cmp > 0) {
+		c = 0;
+		c = CompareIntegers(a,b);
+		if(c > 0) { 
+		while(c >= 0) {
 			state = 0;
 			b = AddIntegers(b,d);	
-			cmp = 0;
-			cmp = CompareIntegers(a,b);
+			c = 0;
+			c = CompareIntegers(a,b);
 			count++;
 		}
 		}
 		else {
 			state = 1;
-			while(cmp < 0) {
+			while(c < 0) {
 			b = SubstractIntegers(b,d);	
-			cmp = 0;
-			cmp = CompareIntegers(a,b);
+			c = 0;
+			c = CompareIntegers(a,b);
 			count++;
 		}	 
 	}
@@ -550,8 +573,7 @@ Integer DivideIntegers(Integer a, Integer b) {
 		if(state == 1) {
 			snprintf(str1,128,"%ld",(f - count));	
 	return CreateIntegerFromString(str1);
-		}
-		
+		}	
 }
 
 void PrintInteger(Integer a) {
