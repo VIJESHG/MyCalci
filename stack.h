@@ -1,6 +1,6 @@
 #define MAX 128
 #include<stdio.h>
-#include "integer.h"
+#include "operations.h"
 typedef struct stack{
 	int i;
 	Integer arr[MAX];
