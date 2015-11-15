@@ -1,5 +1,5 @@
-bc:main.o exprtn.o operations.o stack.o 
-	cc main.o exprtn.o operations.o stack.o -o bc -lm
+project:main.o exprtn.o operations.o stack.o 
+	cc main.o exprtn.o operations.o stack.o -o project -lm
 main.o:main.c operations.h
 	cc -c main.c
 exprtn.o:exprtn.c stack.h
